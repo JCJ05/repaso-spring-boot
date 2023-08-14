@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +43,14 @@ public class IndexController {
 
     @RequestMapping(path = "/listar")
     public String listar(Model model) {
+      
+        model.addAttribute("titulo", "Listado de usuarios");
+        
+        return "listar";
+    }
+
+    @ModelAttribute("usuarios")
+    public List<Usuario> poblarUsuarios() {
         
         List<Usuario> usuarios = new ArrayList<>();
 
@@ -49,9 +58,6 @@ public class IndexController {
         usuarios.add(new Usuario("Jane", "Doe", "jane@gmail.com"));
         usuarios.add(new Usuario("Max", "Doe", "max@gmail.com"));
 
-        model.addAttribute("titulo", "Listado de usuarios");
-        model.addAttribute("usuarios", usuarios);
-
-        return "listar";
+        return usuarios;
     }
 }
