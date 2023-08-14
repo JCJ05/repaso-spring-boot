@@ -1,4 +1,4 @@
-package com.spring.mvc.springwebmvc;
+package com.spring.mvc.springwebmvc.controller;
 
 import java.util.Map;
 
@@ -8,6 +8,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.spring.mvc.springwebmvc.model.Usuario;
 
 @Controller
 @RequestMapping(path = "/app")
@@ -22,5 +24,17 @@ public class IndexController {
         modelAndView.addObject("mensaje4", "Hola Spring MVC 5! con ModelAndView");
 
         return "index";
+    }
+
+    @RequestMapping(path = "/perfil")
+    public String perfil(Model model) {
+        
+        Usuario usuario = new Usuario();
+        usuario.setNombre("John");
+        usuario.setApellido("Doe");
+
+        model.addAttribute("usuario", usuario);
+        
+        return "perfil";
     }
 }

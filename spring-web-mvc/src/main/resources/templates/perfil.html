@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+</head>
+<body>
+
+      <h1>Perfil de usuario</h1>
+    
+      <ul>
+        <li th:text="${usuario.nombre}"></li>
+        <li th:text="${usuario.apellido}"></li>
+        <li th:if="${usuario.email == null}">No existe Usuario</li>
+        <li th:if="${usuario.email}" th:text="${usuario.email}"></li>
+      </ul>
+       
+    </body>
+</html>
