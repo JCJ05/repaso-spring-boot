@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping(path = "/app")
 public class IndexController {
     
     @RequestMapping(path = {"", "/", "/index"} , method = RequestMethod.GET)
